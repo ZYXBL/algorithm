@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var fib = function(N) {
+      if (N === 0 || N === 1) return N;
+      var a = 0,b = 1;
+      for (let i = 2; i <= N;i++) {
+        b = a + b;
+        a = b - a;
+      }
+      return b;
+    };
+
+    function fib2 (N) {
+      if (N === 0) return 0;
+      if (N === 1) return 1;
+      return fib2(N - 1) + fib2(N - 2);
+    }
+
+    console.time('======fib')
+    for (let i = 0;i < 1000;i++) {
+      console.log(fib(5));
+    }
+    console.timeEnd('======fib')
+
+
+    console.time('======fib2')
+    for (let i = 0;i < 1000;i++) {
+      console.log(fib2(5));
+    }
+    console.timeEnd('======fib2')
+
+  </script>
+</body>
+</html>

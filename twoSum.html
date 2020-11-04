@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var twoSum = function(nums, target) {
+      let obj = {};
+      for (let i = 0,len = nums.length;i < len;i++) {
+        let num = nums[i]
+        if (num in obj) {
+          // 当前存在num的补数
+          return [obj[num], i]
+        } else {
+          obj[target - num] = i
+        }
+      }
+    };
+    let data = twoSum([2, 7, 11, 15], 9);
+    console.log(data)
+  </script>
+</body>
+</html>
